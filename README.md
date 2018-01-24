@@ -32,6 +32,12 @@ pch (in Szmap suites) and pch5.py (by OEChem and Quacpac TK) are tested.
 szmap -mpi_np 8 -results_set max -prefix work/PREFIX -protein PROTEINFILE.oeb -around_mol LIGANDFILE.oeb
 ```
 
+All the results can be seen in VIDA state file (which can be merged from 20MB chunks).
+
+```
+cat _work/5xco_szmap_grids.oes.* > 5xco_szmap_grids.oes
+```
+
 ### Experiments
 
 Create a grid of $a+20b$ where $a$ is normalized unmasked virtual molecule and $b$ is normalized positive neut_diff.
