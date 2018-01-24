@@ -36,6 +36,7 @@ All the results can be seen in VIDA state file (which can be merged from 20MB ch
 
 ```
 cat _work/5xco_szmap_grids.oes.* > 5xco_szmap_grids.oes
+vida 5xco_szmap_grids.oes
 ```
 
 ### Experiments
