@@ -51,4 +51,4 @@ python experiments/merge.py work/5xco_pch5.oeb.gz
 
 ### Observations
 
-Schroedinger, MOE complexes, and OpenEye molecules (pch or pch5.py) give similar neut_diff_apo_free_energy_grid (with slight difference in structures). pch5.py is reliable from this observation.
+Schroedinger, MOE complexes, and OpenEye molecules (pch or pch5.py) give similar neut_diff_apo_free_energy_grid (with slight difference in structures). pch5.py seems to be fairly reliable on this observation.
