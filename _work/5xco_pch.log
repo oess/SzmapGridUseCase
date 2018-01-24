@@ -1,0 +1,43 @@
+          :jGf:                  SS    ZZZZZZ  M     M     A     PPPPP 
+        :jGDDDDf:              SS  SS      Z   MM   MM    A A    P    P
+      ,fDDDGjLDDDf,            S          Z    M M M M   A   A   P    P
+    ,fDDLt:   :iLDDL;            SS      Z     M  M  M   AAAAA   PPPPP 
+  ;fDLt:         :tfDG;             S   Z      M     M  A     A  P     
+,jft:   ,ijfffji,   :iff       SS  SS  Z       M     M  A     A  P     
+     .jGDDDDDDDDDGt.             SS   ZZZZZZ   M     M  A     A  P     
+    ;GDDGt:''':tDDDG,                                                  
+   .DDDG:       :GDDG.         Copyright (c) 2009-2015                 
+   ;DDDj         tDDDi         OpenEye Scientific Software, Inc.       
+   ,DDDf         fDDD,         Version: 1.2.1.4 
+    LDDDt.     .fDDDj          Release: 20150619 
+    .tDDDDfjtjfDDDGt           OEChem version: 1.9.4
+      :ifGDDDDDGfi.            Platform: Ubuntu-14.04-g++4.8-x64
+          .:::.                
+  ......................       
+  DDDDDDDDDDDDDDDDDDDDDD       
+  DDDDDDDDDDDDDDDDDDDDDD       
+
+
+To cite please use the following:
+  SZMAP, version 1.2.1, OpenEye Scientific Software, Inc.,
+  Santa Fe, NM, USA, www.eyesopen.com, 2015.
+
+  Licensed for the exclusive use of Ryuichiro Hara.
+  Licensed for use only in OpenEye Japan.
+  License expires on September 18, 2018.
+Running as MPI Master
+Calculating Sum of Gaussians
+
+apo grid dimensions: 55, 66, 60
+apo grid center: 0.855000 -21.141502 -1.738501
+apo grid bounding box: -12.895000 -37.641502 -16.738501 14.605000 -4.641502 13.261499
+43812 points to be tested
+Slave 3 has shutdown normally
+Slave 6 has shutdown normally
+Slave 4 has shutdown normally
+Slave 2 has shutdown normally
+Slave 7 has shutdown normally
+Slave 1 has shutdown normally
+Slave 5 has shutdown normally
+Finished calculations
+Finished

@@ -1,0 +1,72 @@
+#Interface settings
+
+#Execute Options :   
+    #-param (Not set, no default)
+    #-mpi_np (Not set, no default)
+    #-mpi_hostfile (Not set, no default)
+
+#required parameters : szmap [-options] prot.ext [lig.ext [results.oeb.gz]]   
+    -protein  work/5xco_moe20160802_minimized_protein.oeb
+
+#input options :   
+    #-ligand (Not set, no default)
+    #-split_lig  false
+    #-warn_if_missing_hydrogens  false
+
+#output file options :   
+    -prefix  work/5xco_moe
+    #-output_mol (Not set, no default)
+    #-table (Not set, no default)
+    #-std_box (Not set, no default)
+    #-lig_box (Not set, no default)
+    #-apo_box (Not set, no default)
+
+#selection options : If a -ligand is provided but no other selections, the selection is around the ligand.   
+    #-at_coords (Not set, no default)
+    #-residue_number (Not set, no default)
+    #-residue_chain  _
+    #-residue_insert  _
+    #-like_std (Not set, no default)
+    #-like_lig (Not set, no default)
+    #-like_apo (Not set, no default)
+    #-like_box (Not set, no default)
+    -around_mol  work/5xco_moe20160802_minimized_ligand.oeb
+    #-box_mol (Not set, no default)
+    #-bounding_box (Not set, no default)
+    #-surface_points  false
+    #-distance_cutoff  4.0
+    #-value_cutoff  0.05
+    #-restrict_calc  lig
+
+#grid options :   
+    -results_set  max
+    #-stabilization  false
+    #-mask_cutoff  0.0
+    #-add_neutral  false
+    #-add_vacuum  false
+    #-grid_spacing  0.5
+    #-standard_grids  false
+    #-lig_grids  false
+    #-apo_grids  false
+    #-point_grid  false
+    #-lig_point_grid  false
+    #-apo_point_grid  false
+
+#calculation options :   
+    #-num_orientations  60
+    #-dielectric_model  gaussian
+    #-inner_dielectric  1.0
+    #-outer_dielectric  80.0
+    #-salt_conc  0.05
+    #-zap_spacing  0.5
+    #-boundary_spacing  4.0
+    #-boundary_radius  1.4
+    #-water_charge  scaled
+    #-vdw_scale  1.0
+    #-use_apo_from (Not set, no default)
+
+#other options :   
+    #-param (Not set, no default)
+    #-logfile (Not set, no default)
+    #-progress  percent
+    #-verbose  false
