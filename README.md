@@ -25,7 +25,7 @@ In some occasion, ligands are not such small drug-like compounds. This is to exp
 
 See Makefile for prep in each individual case.
 
-pch and pch5.py are tested.
+pch (in Szmap suites) and pch5.py (by OEChem and Quacpac TK) are tested.
 
 ### Szmap execution
 ```
@@ -41,3 +41,7 @@ Yet only as an experiment.
 ```
 python experiments/merge.py work/5xco_pch5.oeb.gz
 ```
+
+### Observations
+
+Schroedinger, MOE complexes, and OpenEye molecules (pch or pch5.py) give similar neut_diff_apo_free_energy_grid (with slight difference in structures). pch5.py is reliable from this observation.
