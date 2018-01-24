@@ -29,3 +29,13 @@ See Makefile for prep in each individual case.
 ```
 szmap -mpi_np 8 -results_set max -prefix work/PREFIX -protein PROTEINFILE.oeb -around_mol LIGANDFILE.oeb
 ```
+
+### Experiments
+
+Create a grid of $a+20b$ where $a$ is normalized unmasked virtual molecule and $b$ is normalized positive neut_diff.
+
+Yet only as an experiment.
+
+```
+python experiments/merge.py work/5xco_pch5.oeb.gz
+```
