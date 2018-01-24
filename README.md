@@ -2,17 +2,21 @@
 Explore the use case of Szmap grid
 
 ### Data
-(H: Hydrogens, C: Partial charges, W: Water)<br/>
-data/5xco_schrodinger2017-4.mol2           H+, C-, W-<br/>
-data/5xco_schrodinger2017-4_minimized.mol2 H+, C+, W-<br/>
-data/5xco_moe20160802.mol2                 H+, C+, W+<br/>
-data/5xco_moe20160802_minimized.mol2       H+, C+, W+<br/>
-data/5xco.pdb                              H-, C-, W+<br/>
+
+| filename | Hydrogens | Partial charges | Water |
+|:---|:---:|:---:|:---:|
+| data/5xco_schrodinger2017-4.mol2           | Y | N | N |
+| data/5xco_schrodinger2017-4_minimized.mol2 | Y | Y | N |
+| data/5xco_moe20160802.mol2                 | Y | Y | Y |
+| data/5xco_moe20160802_minimized.mol2       | Y | Y | Y |
+| data/5xco.pdb                              | N | N | Y |
 
 ### Preparation for Szmap
-1) Water is available (eliminated if)
+1) Water is available (forcibly eliminated)
 2) Partial charges are given (if not available)
 3) Hydrogens are placed (if not available)
+
+See Makefile for prep in each individual case.
 
 ### Szmap execution
 ```
