@@ -47,8 +47,6 @@ vida 5xco_szmap_grids.oes
 
 I really mean it, experiments!!
 
-Create a grid of $a+20b$ where $a$ is normalized unmasked virtual molecule and $b$ is normalized positive neut_diff.
-
 ```
 python experiments/merge.py work/5xco_pch5.oeb.gz
 ```
