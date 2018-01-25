@@ -1,6 +1,8 @@
 # SzmapGridUseCase
 Explore the use case of Szmap grids
 
+![example](images/example1.png)
+
 ## Purposes
 
 In some occasion, ligands are not such small drug-like compounds. This is to explore some use cases of Szmap grids to apply to an extended study around active sites.
