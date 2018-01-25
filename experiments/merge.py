@@ -1,6 +1,6 @@
 from openeye.oechem import *
 from openeye.oegrid import *
-from mathgrid import MathGrid
+from algebraicgrid import AlgebraicGrid
 import sys
 
 
@@ -39,9 +39,9 @@ def ReadDataFromSzmap(iname):
     OEReadMolecule(ifs, ligand)
     ifs.close()
 
-    diff_grid = MathGrid(protein.GetData(DIFF_GRID_NAME))
-    mask_grid = MathGrid(protein.GetData(MASK_GRID_NAME))
-    assert MathGrid.IsMathCompatible(diff_grid, mask_grid)
+    diff_grid = AlgebraicGrid(protein.GetData(DIFF_GRID_NAME))
+    mask_grid = AlgebraicGrid(protein.GetData(MASK_GRID_NAME))
+    assert AlgebraicGrid.IsCompatible(diff_grid, mask_grid)
 
     meta_data = {}
     for line in protein.GetData(META_NAME).strip().split('\n'):
@@ -69,8 +69,6 @@ def main(itf):
     undist_grid = (1 - mask_grid.GetDistance2Grid(center).GetNormalizedGrid())*mask_grid.GetNormalizedGrid()
     shape_grid = undist_grid + weight*unfav_grid
     OEWriteGrid(oname, shape_grid*10)
-
-
 
 
 if __name__ == '__main__':
