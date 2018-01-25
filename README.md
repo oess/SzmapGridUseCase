@@ -14,6 +14,8 @@ In some occasion, ligands are not such small drug-like compounds. This is to exp
 
 ### Data
 
+The following structure files (except PDB) are kindly provided by a customer.
+
 | filename | Hydrogens | Partial charges | Water |
 |:---|:---:|:---:|:---:|
 | data/5xco_schrodinger2017-4.mol2           | Y | N | N |
