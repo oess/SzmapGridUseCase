@@ -1,6 +1,8 @@
 # SzmapGridUseCase
 Explore the use case of Szmap grids
 
+The following image shows grid in Cloud representation, where the hydrophobic region (PPI favorable) is weighted in spherically spread unmasked region.
+
 ![example](images/example1.png)
 
 ## Purposes
