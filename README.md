@@ -51,6 +51,10 @@ I really mean it, experiments!!
 python experiments/merge.py work/5xco_pch5.oeb.gz
 ```
 
+#### About code
+**numpy** is used for convenience in handling grid values in array.<br/>
+MathGrid which inherits OEScalarGrid has arithmetic functions operate on grids. This is highly useful for doing experiments.
+
 ### Observations
 
 #### About pch5.py
