@@ -1,9 +1,9 @@
 from openeye import oechem, oegrid
 import numpy as np
 
-class MathGrid(oegrid.OEScalarGrid):
+class AlgebraicGrid(oegrid.OEScalarGrid):
     """
-    Inherits OEScalarGrid to equip arithmetic methods
+    Inherits OEScalarGrid to equip algebraic methods
     """
 
     def __init__(self, grid, initialize=False, v=0.0):
@@ -40,7 +40,7 @@ class MathGrid(oegrid.OEScalarGrid):
         return (v*xs).sum()/vsum, (v*ys).sum()/vsum, (v*zs).sum()/vsum
 
     def GetNormalizedGrid(self, n=1):
-        grid = MathGrid(self, initialize=True)
+        grid = AlgebraicGrid(self, initialize=True)
         v = np.array(self.GetValues())
         vmin, vmax = v.min(), v.max()
         v = (v - vmin)/(vmax - vmin)*n
@@ -48,7 +48,7 @@ class MathGrid(oegrid.OEScalarGrid):
         return grid
 
     def GetFilteredGrid(self, filter):
-        grid = MathGrid(self, initialize=True)
+        grid = AlgebraicGrid(self, initialize=True)
         v = np.array(self.GetValues())
         for i in range(v.size):
             if not filter(v[i]):
@@ -57,7 +57,7 @@ class MathGrid(oegrid.OEScalarGrid):
         return grid
 
     def GetDistanceGrid(self, p):
-        grid = MathGrid(self, initialize=True)
+        grid = AlgebraicGrid(self, initialize=True)
         v = np.zeros(self.size)
         for i in range(v.size):
             x, y, z = self.ElementToSpatialCoord(i)
@@ -67,7 +67,7 @@ class MathGrid(oegrid.OEScalarGrid):
         return grid
 
     def GetDistance2Grid(self, p):
-        grid = MathGrid(self, initialize=True)
+        grid = AlgebraicGrid(self, initialize=True)
         v = np.zeros(self.size)
         for i in range(v.size):
             x, y, z = self.ElementToSpatialCoord(i)
@@ -76,8 +76,8 @@ class MathGrid(oegrid.OEScalarGrid):
         return grid
 
     def __sub__(self, other):
-        grid = MathGrid(self, initialize=True)
-        if isinstance(other, MathGrid):
+        grid = AlgebraicGrid(self, initialize=True)
+        if isinstance(other, AlgebraicGrid):
             v = np.array(self.GetValues()) - np.array(other.GetValues())
         else:
             v = np.array(self.GetValues()) - other
@@ -85,14 +85,14 @@ class MathGrid(oegrid.OEScalarGrid):
         return grid
 
     def __rsub__(self, other):
-        grid = MathGrid(self, initialize=True)
+        grid = AlgebraicGrid(self, initialize=True)
         v = other - np.array(self.GetValues())
         grid.SetValues(v)
         return grid
 
     def __mul__(self, other):
-        grid = MathGrid(self, initialize=True)
-        if isinstance(other, MathGrid):
+        grid = AlgebraicGrid(self, initialize=True)
+        if isinstance(other, AlgebraicGrid):
             v = np.array(self.GetValues())*np.array(other.GetValues())
         else:
             v = np.array(self.GetValues())*other
@@ -103,8 +103,8 @@ class MathGrid(oegrid.OEScalarGrid):
         return self*other
 
     def __add__(self, other):
-        grid = MathGrid(self, initialize=True)
-        if isinstance(other, MathGrid):
+        grid = AlgebraicGrid(self, initialize=True)
+        if isinstance(other, AlgebraicGrid):
             v = np.array(self.GetValues()) + np.array(other.GetValues())
         else:
             v = np.array(self.GetValues()) + other
@@ -112,14 +112,14 @@ class MathGrid(oegrid.OEScalarGrid):
         return grid
 
     def __radd__(self, other):
-        grid = MathGrid(self, initialize=True)
+        grid = AlgebraicGrid(self, initialize=True)
         v = other + np.array(self.GetValues())
         grid.SetValues(v)
         return grid
 
     def __div__(self, other):
-        grid = MathGrid(self, initialize=True)
-        if isinstance(other, MathGrid):
+        grid = AlgebraicGrid(self, initialize=True)
+        if isinstance(other, AlgebraicGrid):
             v = np.array(self.GetValues())/np.array(other.GetValues())
         else:
             v = np.array(self.GetValues())/other
@@ -127,7 +127,7 @@ class MathGrid(oegrid.OEScalarGrid):
         return grid
 
 
-    def __IsMathCompatible__(self, other):
+    def __IsAlgebraic__(self, other):
         return self.size == other.size and \
             self.xdim == other.xdim and \
             self.ydim == other.ydim and \
@@ -141,5 +141,5 @@ class MathGrid(oegrid.OEScalarGrid):
             self.spacing == other.spacing
 
     @staticmethod
-    def IsMathCompatible(a, b):
-        return a.__IsMathCompatible__(b)
+    def IsAlgebraic(a, b):
+        return a.__IsAlgebraic__(b)
