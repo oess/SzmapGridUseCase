@@ -124,7 +124,7 @@ class AlgebraicGrid(oegrid.OEScalarGrid):
         grid.SetValues(v)
         return grid
 
-    def __div__(self, other):
+    def __truediv__(self, other):
         grid = AlgebraicGrid(self, initialize=True)
         if isinstance(other, AlgebraicGrid):
             v = np.array(self.GetValues())/np.array(other.GetValues())

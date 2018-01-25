@@ -66,9 +66,10 @@ def main(itf):
     protein, ligand, diff_grid, mask_grid, meta_data = ReadDataFromSzmap(iname)
     unfav_grid = diff_grid.GetFilteredGrid(filter=lambda v: 0.0 < v).GetNormalizedGrid()
     center = unfav_grid.GetCentroid()
-    undist_grid = (1 - mask_grid.GetDistance2Grid(center).GetNormalizedGrid())*mask_grid.GetNormalizedGrid()
-    shape_grid = undist_grid + weight*unfav_grid
-    OEWriteGrid(oname, shape_grid*10)
+    undist_grid = (1 - mask_grid.GetDistanceGrid(center).GetNormalizedGrid())*mask_grid.GetNormalizedGrid()
+    shape_grid = (undist_grid + weight*unfav_grid).GetNormalizedGrid()
+    print(shape_grid.GetMinMax())
+    OEWriteGrid(oname, shape_grid)
 
 
 if __name__ == '__main__':
