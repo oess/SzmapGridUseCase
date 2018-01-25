@@ -64,7 +64,7 @@ szmap_pch5: work/5xco_pch5_protein.oeb work/5xco_pch5_ligand.oeb
 ### This is only for experiments
 
 test:
-	python experiments/merge.py -in work/5xco_pch5.oeb.gz -weight 10.0
+	python experiments/merge.py -in work/5xco_pch5.oeb.gz -weight 2.0
 
 ###
 
