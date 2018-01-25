@@ -126,7 +126,6 @@ class AlgebraicGrid(oegrid.OEScalarGrid):
         grid.SetValues(v)
         return grid
 
-
     def __IsCompatible__(self, other):
         return self.size == other.size and \
             self.xdim == other.xdim and \
@@ -142,4 +141,4 @@ class AlgebraicGrid(oegrid.OEScalarGrid):
 
     @staticmethod
     def IsCompatible(a, b):
-        return a.__IsAlgebraic__(b)
+        return a.__IsCompatible__(b)
