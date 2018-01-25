@@ -22,6 +22,13 @@ class AlgebraicGrid(oegrid.OEScalarGrid):
         if initialize:
             self.ClearValues(v)
 
+    def GetDimension(self):
+        return dict(size=self.size,
+                    spacing=self.spacing,
+                    min=dict(x=self.xmin, y=self.ymin, z=self.zmin),
+                    max=dict(x=self.xmax, y=self.ymax, z=self.zmax),
+                    dim=dict(x=self.xdim, y=self.ydim, z=self.zdim))
+
     def ClearValues(self, v=0.0):
         self.SetValues(np.ones(self.GetSize())*v)
 
@@ -125,6 +132,7 @@ class AlgebraicGrid(oegrid.OEScalarGrid):
             v = np.array(self.GetValues())/other
         grid.SetValues(v)
         return grid
+
 
     def __IsCompatible__(self, other):
         return self.size == other.size and \
