@@ -13,7 +13,7 @@ spec = """
 !PARAMETER -out
   !TYPE string
   !REQUIRED false
-  !DEFAULT out.grd
+  !DEFAULT shape.grd
   !BRIEF output file of shape_grid
 !END
 !PARAMETER -weight
@@ -53,24 +53,32 @@ def ReadDataFromSzmap(iname):
 
 def main(itf):
     """
-    diff_grid: neut_diff_apoo_free_energy_grid
-    mask_grid: apo_mask_grid
-    unfav_grid: positive part of diff_grid and normalized to [0, 1]
-    undist_grid: non-zero part of mask_grid multiplied by (1 - normalized distance)
-    shape_grid: undist_grid + weight*unfav_grid
+    neutraldiff_grid: neut_diff_apoo_free_energy_grid
+    mask_grid: apo_mask_grid (maskgrid)
+    unfavor_grid: positive part of dgrid and normalized to [0, 1]
+    openspace_grid: non-zero part of maskgrid multiplied by (1 - scaled distance)
+    shape_grid: openspace_grid + weight*unfavor_grid
     """
     iname = itf.GetString('-in')
     weight = itf.GetFloat('-weight')
     oname = itf.GetString('-out')
 
-    protein, ligand, diff_grid, mask_grid, meta_data = ReadDataFromSzmap(iname)
-    unfav_grid = diff_grid.GetFilteredGrid(filter=lambda v: 0.0 < v).GetNormalizedGrid()
-    center = unfav_grid.GetCentroid()
-    undist_grid = (1 - mask_grid.GetDistanceGrid(center).GetNormalizedGrid())*mask_grid.GetNormalizedGrid()
-    shape_grid = (undist_grid + weight*unfav_grid).GetNormalizedGrid()
-    print(shape_grid.GetMinMax())
-    OEWriteGrid(oname, shape_grid)
+    print('weight={}'.format(weight))
 
+    protein, ligand, neutraldiff_grid, mask_grid, meta_data = ReadDataFromSzmap(iname)
+
+    mask_grid.Ternarize()
+    unfavor_grid = neutraldiff_grid.FilteredGrid(filter=lambda v: v > 0.0).Rescale()
+    center = unfavor_grid.GetCentroid()
+    print(center)
+
+    unmask_grid = ((1 - mask_grid.DistanceGrid(center).Rescale())*mask_grid).Rescale()
+    unfavor_grid = (unfavor_grid**(1.0/10)).Rescale()
+
+    shape_grid = (unmask_grid + weight*unfavor_grid).Rescale()
+    print(shape_grid.GetStats())
+
+    OEWriteGrid(oname, shape_grid)
 
 if __name__ == '__main__':
     itf = OEInterface(spec, sys.argv)
