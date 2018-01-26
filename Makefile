@@ -63,8 +63,14 @@ szmap_pch5: work/5xco_pch5_protein.oeb work/5xco_pch5_ligand.oeb
 ###
 ### This is only for experiments
 
-test:
-	python experiments/merge.py -in work/5xco_pch5.oeb.gz -weight 2.0
+test_makegrid:
+	if [ -z "${WEIGHT}" ] ; then \
+		export WEIGHT=4 ; \
+	fi ; \
+	python experiments/merge.py -in work/5xco_pch5.oeb.gz -weight $${WEIGHT} -out shape.grd
+
+test_rocs:
+	python experiments/sim3D.py shape.grd testmc.oeb out.oeb
 
 ###
 
