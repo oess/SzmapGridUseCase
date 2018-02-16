@@ -63,6 +63,6 @@ AlgebraicGrid which inherits OEScalarGrid has arithmetic functions operate on gr
 Schroedinger, MOE complexes, and OpenEye molecules (pch or pch5.py) give similar neut_diff_apo_free_energy_grid (with slight difference in structures). pch5.py seems to be fairly reliable on this observation.
 
 ### RESULTS!
-Wow!!
+Wow. This is a Shape similarity result to the custom grid query.
 
 ![ROCS results around active site](images/ROCS_around_active_site.png)
